@@ -1,40 +1,28 @@
 const express = require('express');
-const WebSocketServer = require('ws').Server;
-const io = require('socket.io');
-
+const mongoose = require('mongoose');
+// local modules
 const apiController = require('./api/apiController');
-console.log("apiController in server.js " + apiController);
+const Reading = require('./api/readingModel');
 
 const app = express();
 
 const PORT = process.env.PORT || 8888;
 
-var wss = new WebSocketServer({port: 3000}); // I just put 3000 to make it run, I don't know what port is
-var connections = [];
-
 app.use(express.static(__dirname + '/public'));
 
+// get rid of deprecation warning, idk wtf
+mongoose.Promise = global.Promise;
 
-wss.on('connection', handleConnection);
+mongoose.connect('mongodb://127.0.0.1/Readings');
 
-function handleConnection(client) {
-    console.log("New WebSocket Connection");
-    connections.push(client);
+const db = mongoose.connection;
 
-    client.on('message', sendToSerial);
+db.on('error', console.error.bind(console, "mongoose connection error: "));
+db.once('open', () => {
+    console.log("db connected, mongoose did it!");
+})
 
-    client.on('close', () => {
-        console.log("WS Connection Closed");
-        var position = connections.indexOf(client);
-        connections.splice(position, 1);
-    })
-}
-
-function sendToSerial(data) {
-    console.log("sending to serial: " + data);
-
-}
-
+apiController(app); // no idea what's going on
 
 // create a timestamp for nodemon
 var currentDate = new Date();

@@ -1,7 +1,8 @@
 var SerialPort = require('serialport');
 var ReadLine = require('@serialport/parser-readline');
 
-var portName = process.argv[2] || 'COM5';
+var portName = process.argv[2] || 'COM5'; // '/dev/ttyACM0' 
+console.log("Port connected: " + portName);
 
 var port = new SerialPort(portName, {
     baudRate: 9600

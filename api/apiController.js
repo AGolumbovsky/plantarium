@@ -22,7 +22,7 @@ module.exports = (app) => {
         var newReading = new Reading({
 
             reading: 5555555,
-            identifier: "test identifieer numero uno"
+            identifier: "test identifieer numero dos"
 
         });
 

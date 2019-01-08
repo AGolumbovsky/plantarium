@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const apiController = require('./api/apiController');
 // const ReadingModelWTF = require('./api/readingModel');
 
+const exp = require('./exp.js')
+console.log(exp)
+
 const app = express();
 
 const PORT = process.env.PORT || 8888;

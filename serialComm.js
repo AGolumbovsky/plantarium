@@ -10,7 +10,7 @@ var port = new SerialPort(portName, {
 });
 var parser = port.pipe(new ReadLine({ delimiter: '\n'})); // new line is delimiter bc used println in arduino
 
-var readings = [];
+var readings = ["uno", "dos", "tress"];
 
 port.on('open', () => {
     console.log("serial port is open")
@@ -24,3 +24,5 @@ parser.on('data', data => {
 setTimeout(() => {
     console.log("readings array: " + readings);
 }, 15000);
+
+

@@ -1,8 +1,9 @@
-let meinFetch = () => {
+let fetchLatestReading = () => {
 
     console.log("I'm alive");
     // GET req using fetch()
-    var url = "https://swapi.co/api/planets/3/";
+    // var url = "https://swapi.co/api/planets/3/";
+    var url = "http://localhost:8888/api/readings"
     
     /* var url = () => {
         
@@ -23,7 +24,7 @@ let meinFetch = () => {
             if(response.ok) {
                 return response.json();
             }
-                throw new Error("Response was all fucked up and shit");            
+                throw new Error("Response was unpleasant");            
             
         })
         .then((stuff) => {
@@ -37,22 +38,22 @@ let meinFetch = () => {
             for (var key in stuffObject) {
 
                 console.log(key + " : " + stuffObject[key]);
-
                 
                 var displayArea = document.getElementById("display-area");
-                displayArea.appendChild(key + " : " + stuffObject[key] + "\n");
-                displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
+                displayArea.innerHTML = `${stuffObject}`
+                // displayArea.appendChild(key + " : " + stuffObject[key] + "\n");
+                // displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
             }
 
             console.log("whoa")
-            stuffObject.forEach(function(item){
+            /* stuffObject.forEach(function(item){
                 console.log("inside forEach")
                 var div=document.createElement("div");
                 var content = document.createTextNode("text node created");
                 // div.textContent=item;
                 div.appendChild(content)
             });
-
+ */
             // displayArea.append(stuffDone)
             // displayArea.appendChild("<div>hey hey hey</div>")
 

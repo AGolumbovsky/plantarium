@@ -31,25 +31,24 @@ module.exports = (app) => {
     as intended.
 */
 
-    // app.post('/api/add', (req, res) => {
+     app.post('/api/add', (req, res) => {
 
-    //     var newReading = new Reading({
+         var newReading = new Reading({
 
-    //         reading: 5555555,
-    //         identifier: "test identifieer numero dos"
+             reading: 5555555,
+             identifier: "test identifieer numero dos"
 
-    //     });
+         });
 
-    //     newReading.save((err, data) => {
+         newReading.save((err, data) => {
 
-    //         if(err) throw err;
+             if(err) throw err;
+             res.send(data);
 
-    //         res.send(data);
+         });
 
-    //     });
+         console.log("app.post works!");
 
-    //     console.log("app.post works!");
-
-    // })
+     })
 
 }

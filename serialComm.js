@@ -1,5 +1,6 @@
-var SerialPort = require('serialport');
-var ReadLine = require('@serialport/parser-readline');
+const SerialPort = require('serialport');
+const ReadLine = require('@serialport/parser-readline');
+const fs = require('fs');
 
 var portName = process.argv[2] || 'COM5' || '/dev/tty/ACM0';
 console.log("Port connected: " + portName);
@@ -22,7 +23,7 @@ parser.on('data', data => {
         console.log("readings array: " + readings);
     }, 10000) */
     console.log("reaings before: ", readings);
-    readings.push(data);
+    fs.createReadStream(data)
     console.log("readings after: ", readings);
 });
 

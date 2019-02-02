@@ -30,10 +30,10 @@ let fetchLatestReading = () => {
         .then((data) => {
 
             var reading = JSON.stringify(data.reading);
-            var stuffObject = JSON.parse(reading);
+            // var stuffObject = JSON.parse(reading);
 
             var displayArea = document.getElementById("display-area");
-            displayArea.innerHTML = `${stuffObject}`
+            displayArea.innerHTML = `<h2>${reading}</h2>`;
             
 
            /*  console.log(stuffObject);
@@ -47,7 +47,7 @@ let fetchLatestReading = () => {
                 // displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
             } */
 
-            console.log("dun")
+            console.log("Dun")
             /* stuffObject.forEach(function(item){
                 console.log("inside forEach")
                 var div=document.createElement("div");

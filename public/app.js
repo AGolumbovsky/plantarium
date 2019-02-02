@@ -17,12 +17,12 @@ let fetchLatestReading = () => {
     fetch(url, /*{
         mode: 'no-cors'
     }*/)
-        .then((response) => {
+        .then((res) => {
 
-            console.log(response);
+            console.log(res);
             
             if(response.ok) {
-                return response.json();
+                return res.json();
             }
                 throw new Error("Response was unpleasant");            
             
@@ -45,7 +45,7 @@ let fetchLatestReading = () => {
                 // displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
             }
 
-            console.log("whoa")
+            console.log("dun")
             /* stuffObject.forEach(function(item){
                 console.log("inside forEach")
                 var div=document.createElement("div");

@@ -2,10 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 // local modules
 const apiController = require('./api/apiController');
+// require('/serialComm.js');
 // const ReadingModelWTF = require('./api/readingModel');
-
-const exp = require('./exp.js')
-console.log(exp)
 
 const app = express();
 

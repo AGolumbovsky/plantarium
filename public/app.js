@@ -40,7 +40,7 @@ let fetchLatestReading = () => {
                 console.log(key + " : " + stuffObject[key]);
                 
                 var displayArea = document.getElementById("display-area");
-                displayArea.innerHTML = `${stuffObject}`
+                displayArea.innerHTML = `${stuffDone}`
                 // displayArea.appendChild(key + " : " + stuffObject[key] + "\n");
                 // displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
             }

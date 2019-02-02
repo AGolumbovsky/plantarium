@@ -1,6 +1,6 @@
 const Reading = require('../api/readingModel');
 
-console.log("Reading model was successfully required" + Reading);
+console.log("Reading model was successfully required");
 
 module.exports = (app) => {
 

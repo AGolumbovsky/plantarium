@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 // local modules
 const apiController = require('./api/apiController');
-// require('/serialComm.js');
+require('./serialComm');
 // const ReadingModelWTF = require('./api/readingModel');
 
 const app = express();

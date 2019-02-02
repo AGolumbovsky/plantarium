@@ -27,23 +27,25 @@ let fetchLatestReading = () => {
                 throw new Error("Response was unpleasant");            
             
         })
-        .then((stuff) => {
+        .then((data) => {
 
-            var stuffDone = JSON.stringify(stuff);
-            var stuffObject = JSON.parse(stuffDone);
+            var reading = JSON.stringify(data.reading);
+            var stuffObject = JSON.parse(reading);
+
+            var displayArea = document.getElementById("display-area");
+            displayArea.innerHTML = `${stuffObject}`
             
 
-            console.log(stuffObject);
+           /*  console.log(stuffObject);
             
             for (var key in stuffObject) {
 
                 console.log(key + " : " + stuffObject[key]);
                 
-                var displayArea = document.getElementById("display-area");
-                displayArea.innerHTML = `${stuffDone}`
+                
                 // displayArea.appendChild(key + " : " + stuffObject[key] + "\n");
                 // displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
-            }
+            } */
 
             console.log("dun")
             /* stuffObject.forEach(function(item){

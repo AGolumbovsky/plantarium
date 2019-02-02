@@ -7,7 +7,9 @@ module.exports = (app) => {
     app.get('/api/latestReading', (req, res) => {
 
 
-        Reading.find({}, (err, data) => {
+        Reading.findOne()
+        .sort({'reading':-1})
+        .exec((err, data) => {
 
             if(err) {
                 throw err;
@@ -21,34 +23,32 @@ module.exports = (app) => {
         });
 
         console.log("app.get works!");
-
     });
 
 
-/*   
+    /*   
     below is for testing purposes.
     and it doesn't work.
     as intended.
-*/
+    */
 
-     app.post('/api/add', (req, res) => {
+    app.post('/api/add', (req, res) => {
 
-         var newReading = new Reading({
+        var newReading = new Reading({
 
-             reading: 5555555,
-             identifier: "test identifieer numero dos"
+            reading: 5555555,
+            identifier: "test identifieer numero dos"
 
-         });
+        });
 
-         newReading.save((err, data) => {
+        newReading.save((err, data) => {
 
-             if(err) throw err;
-             res.send(data);
+            if(err) throw err;
+            res.send(data);
 
-         });
+        });
 
-         console.log("app.post works!");
-
-     })
+        console.log("app.post works!");
+    });
 
 }

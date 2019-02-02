@@ -32,6 +32,7 @@ parser.on('data', data => {
     }
     
     var newReading = new Reading(dataObj);
+    var newReading = 
     console.log("data obj looks like:", dataObj)
     
     newReading.save((err) => {

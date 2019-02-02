@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Reading = require('../api/readingModel');
 
 console.log("Reading model was successfully required");

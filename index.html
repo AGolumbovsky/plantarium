@@ -3,17 +3,24 @@
         <title>
             Now is Good Time to Plant
         </title>
+
+        <link rel="stylesheet" type="text/css" href="/public/style.css">
+
     </head>
 
     <body>
 
         <h1> Sow What You'll Reap</h1>
+        <div id="check-readings-div">
 
-        <button onclick="fetchLatestReading()">Get Latest Reading</button>
+            <button id="get-readings-btn" onclick="fetchLatestReading()">Get Latest Reading</button>
 
 
-        <div id="display-area">
-            <h4>Intermittent Success Display Area</h4>
+            <div id="display-area-div">
+
+                <h2>Intermittent Success Display Area</h2>
+
+            </div>
         </div>
         
         <script type="text/javascript" src="/public/app.js"></script>

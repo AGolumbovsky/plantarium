@@ -32,7 +32,7 @@ let fetchLatestReading = () => {
             var reading = JSON.stringify(data.reading);
             // var stuffObject = JSON.parse(reading);
 
-            var displayArea = document.getElementById("display-area");
+            var displayArea = document.getElementById("display-area-div");
             displayArea.innerHTML = `<h2>${reading}</h2>`;
             
 

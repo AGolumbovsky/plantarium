@@ -1,0 +1,20 @@
+#check-readings-div {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    /* background-color: yellow; */
+}
+
+#get-readings-btn {
+    /* display:flex; */
+    /* flex-direction:column; */
+
+}
+
+
+#display-area-div {
+    /* display:flex;
+    flex-direction:column; */
+    background-color: #d0d6e0;
+    width: 400px;
+}

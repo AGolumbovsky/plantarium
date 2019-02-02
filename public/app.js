@@ -3,7 +3,7 @@ let fetchLatestReading = () => {
     console.log("I'm alive");
     // GET req using fetch()
     // var url = "https://swapi.co/api/planets/3/";
-    var url = "http://localhost:8888/api/readings"
+    var url = "http://localhost:8888/api/latestReading"
     
     /* var url = () => {
         

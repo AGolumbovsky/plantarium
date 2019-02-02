@@ -4,7 +4,7 @@ console.log("Reading model was successfully required" + Reading);
 
 module.exports = (app) => {
 
-    app.get('/api/readings', (req, res) => {
+    app.get('/api/latestReading', (req, res) => {
 
 
         Reading.find({}, (err, data) => {

@@ -1,6 +1,6 @@
-let fetchLatestReading = () => {
+var fetchLatestReading = () => {
 
-    console.log("Alive and fetching");
+    console.log("Alive and fetching latest reading");
 
     var url = "http://localhost:8888/api/latestReading"
 
@@ -38,20 +38,28 @@ let fetchLatestReading = () => {
 
             var displayArea = document.getElementById("display-area-div");
             displayArea.innerHTML = `<h2>${reading}</h2>`;
-            
 
-           /*  console.log(stuffObject);
-            
-            for (var key in stuffObject) {
-
-                console.log(key + " : " + stuffObject[key]);
-                
-                
-                // displayArea.appendChild(key + " : " + stuffObject[key] + "\n");
-                // displayArea.innerHTML += key + ": " + stuffObject[key] + "\n";
-            } */
-
-            console.log("Fetch dun")
+            console.log("Dun fetched last reading")
 
         })
+}
+
+var fetchDummyPopulate = () => {
+
+    data = {reading: 909, identifier: 'From Fetch'}
+
+    var url = "http://localhost:8888/api/dummyPopulate"
+
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        
+    })
+    .then(res => res.json())
+    .then(response => console.log('fetch sent:', JSON.stringify(response)))
+    .catch(err => console.log("Fetching error:", err));
+
 }

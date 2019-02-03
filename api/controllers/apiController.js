@@ -25,10 +25,14 @@ module.exports = (app) => {
 
     });
 
-    app.post('/api/add', (req, res) => {
+    app.post('/api/dummyPopulate', (req, res) => {
+
+        console.log("req.params is:", req.params)
+        var reading = 686;
+        var description = 'from apiController to the view';
 
         var queryText = `INSERT INTO readings (reading, identifier)
-                        VALUES (888, 'from apiController to the view')`
+                        VALUES (${ reading }, 'from view to db dbl qs')`;
         pool.query(queryText, (err, data) => {
 
             if (err) {

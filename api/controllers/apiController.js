@@ -1,4 +1,4 @@
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 
 module.exports = (app) => {
 
@@ -17,8 +17,8 @@ module.exports = (app) => {
                 throw err;
             }
             
-            console.log("SELECT query executed", data);
-            console.log("apiController sent:", data.rowCount);
+            console.log("SELECT query executed");
+            console.log("apiController sent rows:", data.rowCount);
             res.send(data);
         
         })
@@ -28,14 +28,14 @@ module.exports = (app) => {
     app.post('/api/add', (req, res) => {
 
         var queryText = `INSERT INTO readings (reading, identifier)
-                        VALUES (255, 'take this now')`
+                        VALUES (888, 'from apiController to the view')`
         pool.query(queryText, (err, data) => {
 
             if (err) {
                 throw err;
             }
 
-            console.log("INSERT query executed", data.rows[0]);
+            console.log("INSERT query executed", data.rows);
 
         });
         

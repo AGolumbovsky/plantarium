@@ -2,7 +2,7 @@ const SerialPort = require('serialport');
 const ReadLine = require('@serialport/parser-readline');
 
 
-Ser = () => {
+module.exports = () => {
 
 var portName = process.argv[2] || 'COM5' || '/dev/tty/ACM0'; // make persistent on the pi
 console.log("Port connected: " + portName);
@@ -34,5 +34,3 @@ parser.on('data', data => {
     
 });
 }
-
-module.exports = Ser;

@@ -1,14 +1,13 @@
 let fetchLatestReading = () => {
 
     console.log("Alive and fetching");
-    // var url = "https://swapi.co/api/planets/3/";
+
     var url = "http://localhost:8888/api/latestReading"
-    
+
+    // var url = "https://swapi.co/api/planets/3/";
     /* var url = () => {
-        
         var category = document.getElementById("category") || "planets";
         var position = document.getElementById("position"); || "2";
-
         console.log(category + position);
         return "https://swapi.co/api" + "/" + category + "/" + position + "/";
     }     */

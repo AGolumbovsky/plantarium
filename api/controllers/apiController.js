@@ -2,7 +2,7 @@ const { Pool, Client } = require('pg');
 
 module.exports = (app) => {
 
-    var connectionString = "postgres://plantr:ko00KO))@localhost/plantarium_db";
+    const connectionString = "postgres://plantr:ko00KO))@localhost/plantarium_db";
 
     const pool = new Pool({
         connectionString: connectionString
@@ -10,13 +10,16 @@ module.exports = (app) => {
 
     app.get('/api/latestReading', (req, res) => {
 
-        pool.query('SELECT * from readings order by id desc', (err, data) => {
+        var queryText = 'SELECT * FROM readings ORDER BY id DESC';
+        pool.query(queryText, (err, data) => {
 
             if (err) {
                 throw err;
             }
             
-            console.log("SELECT query executed", data.rows[0]);
+            console.log("SELECT query executed", data);
+            console.log("apiController sent:", data.rowCount);
+            res.send(data);
         
         })
 
@@ -24,8 +27,9 @@ module.exports = (app) => {
 
     app.post('/api/add', (req, res) => {
 
-        pool.query(`INSERT INTO readings (reading, identifier)
-                VALUES (255, 'take this now')`, (err, data) => {
+        var queryText = `INSERT INTO readings (reading, identifier)
+                        VALUES (255, 'take this now')`
+        pool.query(queryText, (err, data) => {
 
             if (err) {
                 throw err;

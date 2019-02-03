@@ -10,7 +10,7 @@ module.exports = (app) => {
 
     app.get('/api/latestReading', (req, res) => {
 
-        var queryText = 'SELECT * FROM readings ORDER BY id DESC';
+        var queryText = `SELECT * FROM readings ORDER BY id DESC`;
         pool.query(queryText, (err, data) => {
 
             if (err) {

@@ -50,6 +50,8 @@ var fetchDummyPopulate = () => {
 
     var url = "http://localhost:8888/api/dummyPopulate"
 
+    console.log("Fetch posting")
+
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -58,7 +60,7 @@ var fetchDummyPopulate = () => {
         }
         
     })
-    .then(res => res.json())
+    // .then(res => res.json())
     .then(response => console.log('fetch sent:', JSON.stringify(response)))
     .catch(err => console.log("Fetching error:", err));
 

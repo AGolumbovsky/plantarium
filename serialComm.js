@@ -27,7 +27,7 @@ parser.on('data', data => {
     var dataObj = {
 
         reading: parsedData,
-        identifier: "some idfier"
+        identifier: 'some idfier'
 
     }
     

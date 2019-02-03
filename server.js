@@ -1,7 +1,8 @@
+const util = require('util');
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 // local modules
-const apiController = require('./api/apiController');
+const apiController = require('./api/controllers/apiController');
 require('./serialComm');
 // const ReadingModelWTF = require('./api/readingModel');
 
@@ -11,24 +12,17 @@ const PORT = process.env.PORT || 8888;
 
 app.use(express.static(__dirname + '/'));
 
-// get rid of deprecation warning, idk wtf
-mongoose.Promise = global.Promise;
+const { Pool } = require('pg');
 
-mongoose.connect('mongodb://127.0.0.1/Readings');
+var connectionString = "postgres://plantr:ko00KO))@localhost/plantarium_db";
 
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, "mongoose connection error: "));
-db.once('open', () => {
-    console.log("db connected, mongoose did it!");
-})
+const pool = new Pool({
+    connectionString: connectionString
+});
 
 apiController(app); // no idea what's going on
 
-// create a timestamp for nodemon
-var currentDate = new Date();
-var timestamp = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
-
 app.listen(PORT, () => {
-    console.log("Now Is Good Time To Plant on port: ", PORT + "\n" + timestamp);
+    // using util.log to provide timestamp for nodemon
+    util.log("Now Is Good Time To Plant on port: ", PORT);
 })

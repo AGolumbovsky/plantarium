@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Reading = require('../api/readingModel');
+const Reading = require('../readingMongooseModel');
 
 console.log("Reading model was successfully required");
 

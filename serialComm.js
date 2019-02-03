@@ -1,6 +1,6 @@
 const SerialPort = require('serialport');
 const ReadLine = require('@serialport/parser-readline');
-const Reading = require('./api/ReadingModel')
+
 
 Ser = () => {
 
@@ -31,22 +31,7 @@ parser.on('data', data => {
 
     }
     
-    var newReading = new Reading(dataObj);
-    var newReading = 
-    console.log("data obj looks like:", dataObj)
     
-    newReading.save((err) => {
-
-        if (err) throw err;
-
-        /* else {
-   
-            console.log("about to send data to db")
-            //res.send(data);
-            
-        } */
-    });
-
 });
 }
 

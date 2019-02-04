@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const pool = require('./dbConnect');
+const pool = require('../config/dbConnect');
 
 module.exports = (app) => {
 

@@ -38,8 +38,10 @@ module.exports = () => {
             identifier: 'some idfier'
 
         }
+        var queryString = `INSERT INTO readings(reading, identifier)
+        VALUES(444, 'from ser')`;
 
-        pool.query('select now()', (err, data) => {
+        pool.query(queryString, (err, data) => {
 
             if (err) throw err;
 

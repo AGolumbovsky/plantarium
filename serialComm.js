@@ -1,6 +1,8 @@
 const SerialPort = require('serialport');
 const ReadLine = require('@serialport/parser-readline');
 
+const pool = require('./api/config/dbConnect');
+
 
 module.exports = () => {
 
@@ -14,12 +16,16 @@ var port = new SerialPort(portName, {
 var parser = port.pipe(new ReadLine({ delimiter: '\r\n'})); // new line is delimiter bc used println in arduino
 
 port.on('open', () => {
-    console.log("serial port is open")
+    console.log("serial port is open", portName);
 });
 
 parser.on('data', data => {
 
     console.log("some data is here: " + data);
+
+    pool.query()
+
+
 
     var parsedData = parseInt(data);
     

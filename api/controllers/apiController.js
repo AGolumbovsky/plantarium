@@ -1,12 +1,13 @@
 const { Pool } = require('pg');
+const pool = require('./dbConnect');
 
 module.exports = (app) => {
 
-    const connectionString = "postgres://plantr:ko00KO))@localhost/plantarium_db";
+    /* const connectionString = "postgres://plantr:ko00KO))@localhost/plantarium_db";
 
     const pool = new Pool({
         connectionString: connectionString
-    });
+    }); */
 
     app.get('/api/latestReading', (req, res) => {
 
@@ -45,4 +46,5 @@ module.exports = (app) => {
         
                 
     });
+
 }

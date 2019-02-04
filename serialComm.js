@@ -10,8 +10,8 @@ const pool = new Pool({
         connectionString: connectionString
     });
 
-
-module.exports = () => {
+console.log("jsut outside module.exports");
+// module.exports = () => {
 
     var portName = process.argv[2] || 'COM5' || '/dev/tty/ACM0'; // make persistent on the pi
     console.log("Port connected: " + portName);
@@ -21,32 +21,25 @@ module.exports = () => {
         // parser: serialport.parsers.readline("\r\n")
     });
     var parser = port.pipe(new ReadLine({ delimiter: '\r\n'})); // new line is delimiter bc used println in arduino
+    console.log("just before port.on()")
 
+    console.log(portName)
     port.on('open', () => {
         console.log("serial port is open", portName);
-    });
-
+    })
     parser.on('data', data => {
 
         console.log("some data is here: " + data);
 
-        var parsedData = parseInt(data);
-        
-        var dataObj = {
-
-            reading: parsedData,
-            identifier: 'some idfier'
-
-        }
+    
         var queryString = `INSERT INTO readings(reading, identifier)
-        VALUES(444, 'from ser')`;
+        VALUES(${data}, 'from ser, real data')`;
 
         pool.query(queryString, (err, data) => {
 
             if (err) throw err;
 
-            console.log(data);
+            console.log(data.rows[0]);
         })
 
     });
-}

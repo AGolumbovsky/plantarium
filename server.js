@@ -2,7 +2,7 @@ const util = require('util');
 const express = require('express');
 // local modules
 const apiController = require('./api/controllers/apiController');
-require('./serialComm');
+// require('./serialComm');
 
 const app = express();
 

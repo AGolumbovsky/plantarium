@@ -39,7 +39,7 @@ console.log("jsut outside module.exports");
 
             if (err) throw err;
 
-            console.log(data.rows[0]);
+            console.log(data.rows);
         })
 
     });

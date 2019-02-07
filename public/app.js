@@ -39,6 +39,17 @@ var fetchLatestReading = () => {
             var displayArea = document.getElementById("display-area-div");
             displayArea.innerHTML = `<h2>${reading}</h2>`;
 
+            if (reading <= 400) {
+                displayArea.className = "redZone";
+            }
+
+            else if (reading > 400 && reading <=600) {
+                displayArea.className = "yellowZone";
+            }
+            else {
+                displayArea.className = "greenZone";
+            }   
+
             console.log("Dun fetched last reading")
 
         })

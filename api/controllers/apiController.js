@@ -29,7 +29,7 @@ module.exports = (app) => {
     app.post('/api/dummyPopulate', (req, res) => {
 
         console.log("res is:", res.json());
-        var reading = 686;
+        var reading = 333;
         var description = 'from apiController to the view';
 
         var queryText = `INSERT INTO readings (reading, identifier)

@@ -1,3 +1,15 @@
+.redZone {
+    background-color: #ff4989;
+}
+
+.yellowZone {
+    background-color: #fcfa6c;
+}
+
+.greenZone {
+    background-color: #99fcce;
+}
+
 #check-readings-div {
     display: flex;
     flex-direction: row;
@@ -11,10 +23,8 @@
 
 }
 
-
 #display-area-div {
     /* display:flex;
     flex-direction:column; */
-    background-color: #d0d6e0;
     width: 400px;
 }

@@ -14,7 +14,7 @@ console.log("jsut outside module.exports");
 // module.exports = () => {
 
     var portName = process.argv[2] || 'COM5' || '/dev/tty/ACM0'; // make persistent on the pi
-    console.log("Port connected: " + portName);
+    console.log("Port is: " + portName);
 
     var port = new SerialPort(portName, {
         baudRate: 9600
@@ -23,14 +23,12 @@ console.log("jsut outside module.exports");
     var parser = port.pipe(new ReadLine({ delimiter: '\r\n'})); // new line is delimiter bc used println in arduino
     console.log("just before port.on()")
 
-    console.log(portName)
     port.on('open', () => {
         console.log("serial port is open", portName);
     })
     parser.on('data', data => {
 
         console.log("some data is here: " + data);
-
     
         var queryString = `INSERT INTO readings(reading, identifier)
         VALUES(${data}, 'from ser, real data')`;

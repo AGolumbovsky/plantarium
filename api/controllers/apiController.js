@@ -11,7 +11,7 @@ module.exports = (app) => {
 
     app.get('/api/latestReading', (req, res) => {
 
-        var queryText = `SELECT * FROM readings ORDER BY id DESC`;
+        var queryText = `SELECT * FROM readings ORDER BY id DESC`; // change to one last rdng
         pool.query(queryText, (err, data) => {
 
             if (err) {
@@ -28,7 +28,7 @@ module.exports = (app) => {
 
     app.post('/api/dummyPopulate', (req, res) => {
 
-        console.log("req.params is:", req.params)
+        console.log("res is:", res.json());
         var reading = 686;
         var description = 'from apiController to the view';
 
@@ -40,7 +40,7 @@ module.exports = (app) => {
                 throw err;
             }
 
-            console.log("INSERT query executed", data.rows);
+            console.log("INSERT query executed", data);
 
         });
         

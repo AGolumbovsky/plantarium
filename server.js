@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8888;
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public'));
 
 apiController(app); // no idea what's going on
 

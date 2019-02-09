@@ -16,9 +16,11 @@
     justify-content: space-around;
     /* background-color: yellow; */
     width: 400px;
+    margin: 0 auto;
 }
 
 #display-area-div {
+    text-align: center;
     /* display:flex;
     flex-direction:column; */
     

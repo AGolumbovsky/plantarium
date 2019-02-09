@@ -12,19 +12,14 @@
 
 #check-readings-div {
     display: flex;
-    flex-direction: row;
-    /* justify-content: space-around; */
+    flex-direction: column;
+    justify-content: space-around;
     /* background-color: yellow; */
-}
-
-#get-readings-btn {
-    /* display:flex; */
-    /* flex-direction:column; */
-
+    width: 400px;
 }
 
 #display-area-div {
     /* display:flex;
     flex-direction:column; */
-    width: 400px;
+    
 }

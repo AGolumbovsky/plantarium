@@ -54,29 +54,3 @@ var fetchLatestReading = () => {
 
         })
 }
-
-var fetchDummyPopulate = () => {
-    
-    var dumNum = parseInt(document.getElementById('dumNum').value);
-
-    data = {reading: dumNum, identifier: 'From Fetch'};
-
-    var url = "http://localhost:8888/api/dummyPopulate";
-
-    console.log("data about to be sent:", data);
-
-    console.log("Fetch posting");
-
-    fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        
-    })
-    // .then(res => res.json())
-    .then(res => console.log('fetch sent:', JSON.stringify(res)))
-    .catch(err => console.log("Fetching error:", err));
-
-}

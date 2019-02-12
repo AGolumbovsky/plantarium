@@ -17,7 +17,7 @@ module.exports = (app) => {
             }
             
             console.log("SELECT query executed");
-            console.log("apiController sent rows:", data.rowCount);
+            console.log(`apiController sent ${data.rowCount} rows`);
             res.send(data);
         
         })

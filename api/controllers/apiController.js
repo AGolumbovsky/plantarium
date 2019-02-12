@@ -1,13 +1,11 @@
 const { Pool } = require('pg');
 const pool = require('../config/dbConnect');
+const cors = require('cors');
 
 module.exports = (app) => {
 
-    /* const connectionString = "postgres://plantr:ko00KO))@localhost/plantarium_db";
-
-    const pool = new Pool({
-        connectionString: connectionString
-    }); */
+    app.use(cors());
+    app.options('*', cors());
 
     app.get('/api/latestReading', (req, res) => {
 

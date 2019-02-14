@@ -1,13 +1,13 @@
 .redZone {
-    background-color: #ff4989;
+    color:#ff4989;
 }
 
 .yellowZone {
-    background-color: #fcfa6c;
+    color: #e5dd3d;
 }
 
 .greenZone {
-    background-color: #99fcce;
+    color: #42dd4a;
 }
 
 #check-readings-div {

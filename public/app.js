@@ -39,6 +39,8 @@ var fetchLatestReading = () => {
             var displayArea = document.getElementById("display-area-div");
             displayArea.innerHTML = `<h2>${reading}</h2>`;
 
+            document.getElementById("reading-meter").setAttribute("value", reading);
+
             if (reading <= 400) {
                 displayArea.className = "redZone";
             }

@@ -1,8 +1,8 @@
-var fetchLatestReading = () => {
+let fetchLatestReading = () => {
 
     console.log("Alive and fetching latest reading");
 
-    var url = "http://localhost:8888/api/latestReading"
+    let url = "http://localhost:8888/api/latestReading"
 
     // var url = "https://swapi.co/api/planets/3/";
     /* var url = () => {
@@ -17,7 +17,7 @@ var fetchLatestReading = () => {
     }*/)
         .then((res) => {
             // var jason = JSON.stringify(res.body);
-            var jason = res.json();
+            let jason = res.json();
             console.log(jason);
             console.log(typeof(res));
             
@@ -33,10 +33,10 @@ var fetchLatestReading = () => {
         .then((data) => {
 
             console.log(data.rows[0]);
-            var reading = data.rows[0].reading;
+            let reading = data.rows[0].reading;
             // var stuffObject = JSON.parse(reading);
 
-            var displayArea = document.getElementById("display-area-div");
+            let displayArea = document.getElementById("display-area-div");
             displayArea.innerHTML = `<h2>${reading}</h2>`;
 
             document.getElementById("reading-meter").setAttribute("value", reading);

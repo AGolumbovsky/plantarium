@@ -9,7 +9,7 @@ module.exports = (app) => {
 
     app.get('/api/latestReading', (req, res) => {
 
-        var queryText = `SELECT * FROM readings ORDER BY id DESC`; // change to one last rdng
+        let queryText = `SELECT * FROM readings ORDER BY id DESC`; // change to one last rdng
         pool.query(queryText, (err, data) => {
 
             if (err) {
@@ -27,10 +27,10 @@ module.exports = (app) => {
     app.post('/api/dummyPopulate', (req, res) => {
 
         console.log("res is:", res.json());
-        var reading = 333;
-        var description = 'from apiController to the view';
+        let reading = 333;
+        let description = 'from apiController to the view';
 
-        var queryText = `INSERT INTO readings (reading, identifier)
+        let queryText = `INSERT INTO readings (reading, identifier)
                         VALUES (${ reading }, 'from view to db dbl qs')`;
         pool.query(queryText, (err, data) => {
 

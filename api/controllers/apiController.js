@@ -10,7 +10,7 @@ module.exports = (app) => {
 
     app.get('/api/latestReading', (req, res) => {
 
-        let queryText = `SELECT * FROM readings ORDER BY id DESC`; // change to one last rdng
+        let queryText = `SELECT * FROM readings ORDER BY id DESC LIMIT 1`; // change to one last rdng
         pool.query(queryText, (err, data) => {
 
             if (err) {
@@ -18,10 +18,12 @@ module.exports = (app) => {
             }
             
             console.log("SELECT query executed");
-            console.log(`apiController sent ${data.rowCount} rows`);
+            console.log(`apiController sent ${data.rows[0].reading}`);
             res.send(data);
 
-            emailer(data);
+            if (data.rows[0].reading <= 400) {
+                emailer(data.rows[0].reading);
+            }
         })
     });
 

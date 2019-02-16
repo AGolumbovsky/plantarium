@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer');
 async function emailer(reading) {
 
   if (!reading) {
-    readings = "Low";
+    reading = "Low";
   }
 
   // create reusable transporter object using the default SMTP transport
@@ -46,6 +46,6 @@ async function emailer(reading) {
   console.log(`Message sent to ${receiver}`);
 }
 
-emailer().catch(console.error);
+// emailer().catch(console.error);
 
 module.exports = emailer;

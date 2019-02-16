@@ -1,6 +1,7 @@
 const { Pool } = require('pg');
 const pool = require('../config/dbConnect');
 const cors = require('cors');
+const emailer = require('../emailer');
 
 module.exports = (app) => {
 
@@ -19,9 +20,9 @@ module.exports = (app) => {
             console.log("SELECT query executed");
             console.log(`apiController sent ${data.rowCount} rows`);
             res.send(data);
-        
-        })
 
+            emailer(data);
+        })
     });
 
     app.post('/api/dummyPopulate', (req, res) => {

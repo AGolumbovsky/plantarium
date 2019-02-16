@@ -6,7 +6,11 @@ const nodemailer = require('nodemailer');
 
 */
 
-async function emailer() {
+async function emailer(reading) {
+
+  if (!reading) {
+    readings = "Low";
+  }
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -30,7 +34,7 @@ async function emailer() {
 
     from: '"Your Cactus <yourCactos@gmail.com>', // sender address
     to: receiver, // list of receivers, CSV inside string works
-    subject: "Feed Me", 
+    subject: `Feed Me, I'm at ${reading}`, 
     // text is not seen in email body, find out why 
     text: "Feed me now, don't make me call your mother again", // plain text body
     html: "<b>Something inside an html bee tag</b>" // html body
@@ -43,3 +47,5 @@ async function emailer() {
 }
 
 emailer().catch(console.error);
+
+module.exports = emailer;
